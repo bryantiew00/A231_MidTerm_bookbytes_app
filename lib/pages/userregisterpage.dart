@@ -214,7 +214,7 @@ void _registerUser() {
     }
 
     http.post(
-        Uri.parse("${MyServerConfig.server}user_register.php"),
+        Uri.parse("${MyServerConfig.server}server/php/user_register.php"),
         body: {
           "name": name,
           "email": email,
