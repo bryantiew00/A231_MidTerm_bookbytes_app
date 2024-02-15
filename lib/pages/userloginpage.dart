@@ -155,7 +155,7 @@ void userLogin() {
     String pass = passwordEditingController.text;
 
     http.post(
-        Uri.parse("${MyServerConfig.server}user_login.php"),
+        Uri.parse("${MyServerConfig.server}server/php/user_login.php"),
         body: {"email": email, "password": pass}).then((response) {
       print(response.body);
       if (response.statusCode == 200) {
