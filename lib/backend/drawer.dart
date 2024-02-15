@@ -1,4 +1,6 @@
+import 'package:bookbyte/backend/route.dart';
 import 'package:bookbyte/buyer/user.dart';
+import 'package:bookbyte/pages/mainpage.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatefulWidget {
@@ -34,6 +36,26 @@ class _MyDrawerState extends State<MyDrawer> {
                     Text(widget.userdata.userEmail.toString()),
                   ]),
             ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.money),
+            title: const Text('Books'),
+            onTap: () {
+              Navigator.pop(context);
+              if (widget.page.toString() == "books") {
+                return;
+              }
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                EnterExitRoute(
+                  exitPage: MainPage(
+                    user: widget.userdata,
+                  ),
+                  enterPage: MainPage(user: widget.userdata),
+                ),
+              );
+            },
           ),
           ListTile(
             leading: const Icon(Icons.verified_user),
